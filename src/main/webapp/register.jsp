@@ -45,7 +45,7 @@
                 <input type="text" placeholder="手机号" name="phone" id="phone" maxlength="11"/>
             </div>
             <input type="submit" class="inputButton" value="注 册"/>
-            <a href="login.jsp"><input type="button" value="返回登录页" class="inputButton"/></a>
+            <a href="index.jsp"><input type="button" value="返回登录页" class="inputButton"/></a>
         </div>
 
 

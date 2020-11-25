@@ -21,7 +21,7 @@
 <body>
 <div id="bigBox">
     <h1>登 录</h1>
-    <form action="/login" method="post">
+    <form action="/login" method="post" name="loginform" onsubmit="return LoginCheck();">
 
         <div class="inputBox">
             <div class="inputText">
@@ -40,6 +40,20 @@
 
     </form>
 </div>
+<!--   以下代码用以显示登陆失败信息 -->
+<%
+    String loginMsg = (String) request.getAttribute("loginMsg");
+    if(loginMsg == "fail"){
+        request.setAttribute("loginMsg", "");
+%>
+<script type="text/javascript">
+    alert("登陆失败，请检查您的用户名和密码输入是否正确！");
+</script>
+<%
+    }
+%>
+<!--     end -->
 
+<script src="js/logincheck.js"></script>
 </body>
 </html>

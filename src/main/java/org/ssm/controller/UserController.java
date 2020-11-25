@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.ssm.bean.User;
 import org.ssm.service.UserService;
 
+import java.util.Map;
+
 @Controller
 public class UserController {
     @Autowired
@@ -18,9 +20,16 @@ public class UserController {
 //    login
     @RequestMapping("/login")
     public String login(@RequestParam(value = "name") String name,
-                        @RequestParam(value = "password") String password){
+                        @RequestParam(value = "password") String password, Map<String,Object> map){
+        if (userService.checkLogin(name, password)=="fail"){
+            map.put("loginMsg","fail");
+            return "fail";
+        }
+        else {
+            return "list";
+        }
 
-        return userService.checkLogin(name, password);
+
     }
 
     @RequestMapping(value = "/register")
