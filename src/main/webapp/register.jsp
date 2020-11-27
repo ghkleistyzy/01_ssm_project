@@ -15,7 +15,7 @@
 <head>
     <base href="<%=basePath%>">
     <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="css/registerstyles.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/registerstyles.css">
 </head>
 
 <body>
@@ -25,23 +25,23 @@
 
         <div class="inputBox">
             <div class="inputText">
-                <i class="icon"><img alt="usericon" src="image/usericon.png"/></i>
+                <i class="icon"><img alt="usericon" src="/static/image/usericon.png"/></i>
                 <input type="text" placeholder="用户名" name="name" id="name" maxlength="20"/>
                 <i class="icon"></i>
             </div>
 
             <div class="inputText">
-                <i class="icon"><img alt="passwordicon" src="image/passwordicon.png"/></i>
+                <i class="icon"><img alt="passwordicon" src="/static/image/passwordicon.png"/></i>
                 <input type="password" placeholder="密码" name="password" id="password" maxlength="18"/>
             </div>
 
             <div class="inputText">
-                <i class="icon"><img alt="passwordicon" src="image/emailicon.png"/></i>
+                <i class="icon"><img alt="passwordicon" src="/static/image/emailicon.png"/></i>
                 <input type="text" placeholder="邮箱" name="email" id="email" maxlength="20"/>
             </div>
 
             <div class="inputText">
-                <i class="icon"><img alt="passwordicon" src="image/phoneicon.png"/></i>
+                <i class="icon"><img alt="passwordicon" src="/static/image/phoneicon.png"/></i>
                 <input type="text" placeholder="手机号" name="phone" id="phone" maxlength="11"/>
             </div>
             <input type="submit" class="inputButton" value="注 册"/>

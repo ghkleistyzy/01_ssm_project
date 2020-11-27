@@ -19,4 +19,8 @@
     <insert id="createUser">
         insert into user(name,email,phone,password) values (#{name},#{email},#{phone},#{password})
     </insert>
+
+    <select id="findInfoByName" resultType="org.ssm.bean.User">
+        SELECT * from user where name=#{name}
+    </select>
 </mapper>

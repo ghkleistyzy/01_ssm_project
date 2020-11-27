@@ -11,18 +11,31 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
 
+//    @Override
+//    public String checkLogin(String name, String password) {
+//        User user = userDao.findUserByName(name);
+//        if (user==null){
+//            return "fail";
+//        }
+//        if (password.equals(user.getPassword())){
+//            return "list";
+//        }
+//        else
+//            return "fail";
+//
+//    }
+
     @Override
-    public String checkLogin(String name, String password) {
-        User user = userDao.findUserByName(name);
-        if (user==null){
+    public String checkLogin(User user) {
+        User userByName = userDao.findUserByName(user.getName());
+        if (userByName==null){
             return "fail";
         }
-        if (password.equals(user.getPassword())){
+        if (user.getPassword().equals(userByName.getPassword())){
             return "list";
         }
         else
             return "fail";
-
     }
 
     @Override
@@ -33,5 +46,11 @@ public class UserServiceImpl implements UserService {
             return "list";
         }
         return "fail";
+    }
+
+    @Override
+    public User checkInfo(User user) {
+        User infoByName = userDao.findInfoByName(user.getName());
+        return infoByName;
     }
 }

@@ -9,8 +9,8 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="mainstyle.css"/>
-    <script type="text/javascript" src="js/changebigpic.js">
+    <link rel="stylesheet" type="text/css" href="/static/css/mainstyle.css"/>
+    <script type="text/javascript" src="/static/js/changebigpic.js">
     </script>
 </head>
 
@@ -19,13 +19,13 @@
 <div class="topinfo">
     <ul>
         <li>
-            <a href="person_center.jsp">个人中心</a>
+            <a href="person_center">个人中心</a>
         </li>
         <li>
-            <a href="cart.jsp">购物车</a>
+            <a href="cart">购物车</a>
         </li>
         <li>
-            <a href="order.jsp">我的订单</a>
+            <a href="order">我的订单</a>
         </li>
         <li>
             <a href="index.jsp">请登录</a>
@@ -36,11 +36,11 @@
 
 <div class="logoandsearch">
     <div class="logo">
-        <a href="main.html"><img alt="辣魚" src="image/logo.png"/></a>
+        <a href="main.html"><img alt="辣魚" src="/static/image/logo.png"/></a>
     </div>
     <div class="search">
         <input type="text" name="search" placeholder="在此输入要搜索的商品信息"/>
-        <a href="search.jsp"><img alt="search" src="image/search.jpg"/></a>
+        <a href="search.jsp"><img alt="search" src="/static/image/search.jpg"/></a>
     </div>
 </div>
 
@@ -74,7 +74,7 @@
         </ul>
     </div>
     <div class="bigshow">
-        <a href=""><img alt="图片" src="image/bigpic1.jpg" id="bigpic"/></a>
+        <a href=""><img alt="图片" src="/static/image/bigpic1.jpg" id="bigpic"/></a>
     </div>
 
     <div class="word">
@@ -84,7 +84,7 @@
     <div class="selected">
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product1.jpg"/>
+                <img alt="图片" src="/static/image/product1.jpg"/>
                 <br/>
                 <b class="price">¥2269.00</b>
                 <b class="name">华为 畅享20Plus 5G手机 8+128G</b>
@@ -92,7 +92,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product2.jpg"/>
+                <img alt="图片" src="/static/image/product2.jpg"/>
                 <br/>
                 <b class="price">¥29.90</b>
                 <b class="name">永生636三件套铱金书法钢笔套装</b>
@@ -100,7 +100,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product3.jpg"/>
+                <img alt="图片" src="/static/image/product3.jpg"/>
                 <br/>
                 <b class="price">¥79.90</b>
                 <b class="name">心相印抽纸 茶语丝享系列3层150抽面巾纸*24包纸巾</b>
@@ -108,7 +108,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product4.jpg"/>
+                <img alt="图片" src="/static/image/product4.jpg"/>
                 <br/>
                 <b class="price">¥109.00</b>
                 <b class="name">babycare儿童保温杯吸管杯水杯宝宝学饮杯保温水壶316不锈钢带把手 270ml</b>
@@ -116,7 +116,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product1.jpg"/>
+                <img alt="图片" src="/static/image/product1.jpg"/>
                 <br/>
                 <b class="price">¥2269.00</b>
                 <b class="name">华为 畅享20Plus 5G手机 8+128G</b>
@@ -124,7 +124,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product2.jpg"/>
+                <img alt="图片" src="/static/image/product2.jpg"/>
                 <br/>
                 <b class="price">¥29.90</b>
                 <b class="name">永生636三件套铱金书法钢笔套装</b>
@@ -132,7 +132,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product3.jpg"/>
+                <img alt="图片" src="/static/image/product3.jpg"/>
                 <br/>
                 <b class="price">¥79.90</b>
                 <b class="name">心相印抽纸 茶语丝享系列3层150抽面巾纸*24包纸巾</b>
@@ -140,7 +140,7 @@
         </div>
         <div class="product">
             <a href="">
-                <img alt="图片" src="image/product4.jpg"/>
+                <img alt="图片" src="/static/image/product4.jpg"/>
                 <br/>
                 <b class="price">¥109.00</b>
                 <b class="name">babycare儿童保温杯吸管杯水杯宝宝学饮杯保温水壶316不锈钢带把手 270ml</b>
@@ -152,7 +152,14 @@
 </div>
 
 <div class="bottominfo">
-    <i>@Author dyw</i>
+    <i>@Author kleistyzy</i>
 </div>
+<%--<%--%>
+<%--    String name=request.getParameter("name");--%>
+<%--    session.setAttribute("name", name);--%>
+<%--    String password=request.getParameter("password");--%>
+<%--    session.setAttribute("possword", password);--%>
+
+<%--%>--%>
 </body>
 </html>
