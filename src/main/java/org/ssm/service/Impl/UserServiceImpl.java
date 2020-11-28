@@ -26,16 +26,17 @@ public class UserServiceImpl implements UserService {
 //    }
 
     @Override
-    public String checkLogin(User user) {
+    public User checkLogin(User user) {
         User userByName = userDao.findUserByName(user.getName());
-        if (userByName==null){
-            return "fail";
-        }
-        if (user.getPassword().equals(userByName.getPassword())){
-            return "list";
-        }
-        else
-            return "fail";
+//        if (userByName==null){
+//            return "fail";
+//        }
+//        if (user.getPassword().equals(userByName.getPassword())){
+//            return "list";
+//        }
+//        else
+//            return "fail";
+        return userByName;
     }
 
     @Override
@@ -52,5 +53,10 @@ public class UserServiceImpl implements UserService {
     public User checkInfo(User user) {
         User infoByName = userDao.findInfoByName(user.getName());
         return infoByName;
+    }
+
+    @Override
+    public int updatePersonInfo(User user) {
+        return userDao.updateInfo(user);
     }
 }

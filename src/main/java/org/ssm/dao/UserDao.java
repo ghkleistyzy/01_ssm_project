@@ -9,4 +9,6 @@ public interface UserDao {
     int createUser(User user);
 
     User findInfoByName(String name);
+
+    int updateInfo(User user);
 }

@@ -23,4 +23,8 @@
     <select id="findInfoByName" resultType="org.ssm.bean.User">
         SELECT * from user where name=#{name}
     </select>
+
+    <update id="updateInfo">
+        update user set name=#{name},password=#{password},phone=#{phone},email=#{email} where id=#{id}
+    </update>
 </mapper>

@@ -21,13 +21,13 @@ public class UserController {
     public String login(@RequestParam(value = "name") String name,
                         @RequestParam(value = "password") String password, Map<String,Object> map, HttpSession httpSession){
         User user = new User(null, name, "", "", password);
-        String s = userService.checkLogin(user);
-        if (s =="fail"){
+        User user1 = userService.checkLogin(user);
+        if (user1==null){
             map.put("loginMsg","fail");
             return "redirect:/index.jsp";
         }
-        else if (s=="list"){
-            httpSession.setAttribute("nowUser", s);
+        else if (user1!=null){
+            httpSession.setAttribute("nowUser", user1);
             return "list";
         }
         else return "fail";
@@ -52,6 +52,20 @@ public class UserController {
     @RequestMapping("/person_center")
      public String info(){
         return "person_center";
+     }
+
+     @RequestMapping("/returnlist")
+    public String returnList(){
+        return "list";
+     }
+
+     @RequestMapping("/updateInfo")
+    public String updateInfo(User user,HttpSession httpSession){
+         User nowUser = (User)httpSession.getAttribute("nowUser");
+         user.setId(nowUser.getId());
+         userService.updatePersonInfo(user);
+         httpSession.setAttribute("nowUser",user);
+         return "list";
      }
 
 
