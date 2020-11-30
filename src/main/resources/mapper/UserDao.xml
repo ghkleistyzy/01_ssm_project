@@ -27,4 +27,10 @@
     <update id="updateInfo">
         update user set name=#{name},password=#{password},phone=#{phone},email=#{email} where id=#{id}
     </update>
+
+    <select id="selectUserById" resultType="org.ssm.bean.User">
+ 		select id, name,password, email, phone
+ 		from user
+ 		where id = #{id}
+ 	</select>
 </mapper>

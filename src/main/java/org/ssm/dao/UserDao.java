@@ -11,4 +11,6 @@ public interface UserDao {
     User findInfoByName(String name);
 
     int updateInfo(User user);
+
+    User selectUserById(int id);
 }

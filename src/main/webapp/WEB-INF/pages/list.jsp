@@ -1,4 +1,6 @@
-<%--
+<%@ page import="org.ssm.bean.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: 袁竹雨
   Date: 2020/11/23
@@ -10,11 +12,25 @@
 <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="/static/css/mainstyle.css"/>
-    <script type="text/javascript" src="/static/js/changebigpic.js">
+    <script type="text/javascript" src="/js/changebigpic.js">
     </script>
 </head>
 
 <body>
+<%--从数据库中随机拿商品数据--%>
+<%
+    String isFirstLoad = (String) request.getAttribute("isFirstLoad");
+    isFirstLoad = isFirstLoad == null ? "true" : "false";
+%>
+<form action="main" style="display: none;" method="POST" id="submitform">
+    <input type="text" id="isfirstload" value="<%=isFirstLoad %>"/>
+</form>
+<script type="text/javascript">
+    var isFirstLoad = document.getElementById("isfirstload").value;
+    if(isFirstLoad == "true"){
+        document.getElementById("submitform").submit();
+    }
+</script>
 
 <div class="topinfo">
     <ul>
@@ -82,70 +98,25 @@
     </div>
 
     <div class="selected">
+        <%
+            List<Product> randomProducts = (ArrayList<Product>) request.getAttribute("randomProducts");
+            if(randomProducts != null && randomProducts.size() > 0){
+                for(Product product : randomProducts){
+                    String hrefPath = "getoneproduct?pid=" + product.getPid();
+        %>
         <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product1.jpg"/>
+            <a href="<%=hrefPath %>" target="_blank">
+                <img alt="图片" src="<%=product.getPpicloc() %>"/>
                 <br/>
-                <b class="price">¥2269.00</b>
-                <b class="name">华为 畅享20Plus 5G手机 8+128G</b>
+                <b class="price">¥<%=product.getPprice() %></b>
+                <b class="name"><%=product.getPname() %></b>
             </a>
         </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product2.jpg"/>
-                <br/>
-                <b class="price">¥29.90</b>
-                <b class="name">永生636三件套铱金书法钢笔套装</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product3.jpg"/>
-                <br/>
-                <b class="price">¥79.90</b>
-                <b class="name">心相印抽纸 茶语丝享系列3层150抽面巾纸*24包纸巾</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product4.jpg"/>
-                <br/>
-                <b class="price">¥109.00</b>
-                <b class="name">babycare儿童保温杯吸管杯水杯宝宝学饮杯保温水壶316不锈钢带把手 270ml</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product1.jpg"/>
-                <br/>
-                <b class="price">¥2269.00</b>
-                <b class="name">华为 畅享20Plus 5G手机 8+128G</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product2.jpg"/>
-                <br/>
-                <b class="price">¥29.90</b>
-                <b class="name">永生636三件套铱金书法钢笔套装</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product3.jpg"/>
-                <br/>
-                <b class="price">¥79.90</b>
-                <b class="name">心相印抽纸 茶语丝享系列3层150抽面巾纸*24包纸巾</b>
-            </a>
-        </div>
-        <div class="product">
-            <a href="">
-                <img alt="图片" src="/static/image/product4.jpg"/>
-                <br/>
-                <b class="price">¥109.00</b>
-                <b class="name">babycare儿童保温杯吸管杯水杯宝宝学饮杯保温水壶316不锈钢带把手 270ml</b>
-            </a>
-        </div>
+
+        <%
+                }
+            }
+        %>
 
     </div>
 
@@ -154,12 +125,6 @@
 <div class="bottominfo">
     <i>@Author kleistyzy</i>
 </div>
-<%--<%--%>
-<%--    String name=request.getParameter("name");--%>
-<%--    session.setAttribute("name", name);--%>
-<%--    String password=request.getParameter("password");--%>
-<%--    session.setAttribute("possword", password);--%>
 
-<%--%>--%>
 </body>
 </html>

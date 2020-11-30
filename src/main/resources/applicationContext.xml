@@ -21,7 +21,7 @@
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
         <property name="dataSource" ref="ds"></property>
         <!-- sql映射文件的位置-->
-        <property name="mapperLocations" value="classpath:mapper/UserDao.xml"></property>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="org.ssm.dao"></property>

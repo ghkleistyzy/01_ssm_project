@@ -16,6 +16,8 @@
 <head>
     <title>Person_center</title>
     <link type="text/css" rel="stylesheet" href="/static/css/style-personcenter.css" />
+
+    <script type="text/javascript" src="/js/personalcenter.js"></script>
     <base href="<%=basePath%>">
 </head>
 <body>
@@ -41,6 +43,22 @@
         </li>
     </ul>
 </div>
+<div class="logo">
+    <a href="/returnlist"><img alt="辣鱼" src="/static/image/logo.png"/></a>
+</div>
+
+<div class="mainframe">
+
+    <div class="select">
+        <div class="choice">
+            <button onclick="changeToInfo()">个人信息</button>
+        </div>
+        <div class="choice">
+            <button onclick="changeToRelease()">我发布的</button>
+        </div>
+    </div>
+    <div class="info">
+        <div class="personalinfo" id="personalinfo">
 <form class="personalinfoform" action="updateInfo"  method="POST" name="personalinfoform" onsubmit="return checkUpdate()">
     <%
         User nowUser = (User) request.getSession().getAttribute("nowUser");
@@ -75,7 +93,52 @@
         </tr>
     </table>
 
-    <a href="returnlist">点此返回主页面！</a>
+    <a href="returnlist.do">点此返回主页面！</a>
+
+
 </form>
+        </div>
+        <div class="myrelease" id="myrelease">
+            <table border="1" cellspacing="0">
+                <tr>
+                    <th>缩略图</th>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>商品类型</th>
+                    <th>商品价格</th>
+                    <th>库存</th>
+                    <th>操作</th>
+                </tr>
+                <%
+                    List<Product> publishedProducts = (List<Product>) request.getAttribute("publishedProducts");
+                    if(publishedProducts.size() > 0){
+                        for(Product product : publishedProducts){
+                %>
+                <tr>
+                    <td>
+                        <a  style="width: 70px;height: 50px;"/>无图，爬</a>
+                    </td>
+                    <td><%=product.getPid() %> </td>
+                    <td><%=product.getPname() %></td>
+                    <%
+                        String productType = product.getPfirsttype() + "、" + product.getPsecondtype();
+                    %>
+                    <td><%=productType %></td>
+                    <td><%=product.getPprice() %></td>
+                    <td><%=product.getPnum() %></td>
+                    <td>
+                        <a href="toupdate?pid=<%=product.getPid() %>">修改</a>
+                        <a href="deleteproduct?pid=<%=product.getPid() %>" onclick="alert('删除成功！');">删除</a>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

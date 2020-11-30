@@ -2,6 +2,35 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="org.ssm.dao.ProductDao">
+<!--    <resultMap id="productMap" type="org.ssm.bean.Product">-->
+<!--        <id property="pid" column="pid"></id>-->
+<!--        <result property="pname" column="pname"></result>-->
+<!--        <result property="pfirststyle" column="pfirststyle"></result>-->
+<!--        <result property="psecondtype" column="psecondtype"></result>-->
+<!--        <result property="pprice" column="pprice"></result>-->
+<!--        <result property="pnum" column="pnum"></result>-->
+<!--        <result property="ppublisherid" column="ppublisherid"></result>-->
+<!--        <result property="pdate" column="pdate"></result>-->
+<!--        <result property="pcontent" column="pcontent"></result>-->
+<!--        <result property="ppicloc" column="picloc"></result>-->
+<!--    </resultMap>-->
 
+    <select id="selectPublishedProductsById" resultType="org.ssm.bean.Product">
+        select pid, pname, pfirsttype, psecondtype, pprice, pnum, pcontent, ppicloc, ppublisherid, pdate
+ 		from product
+ 		where ppublisherid = #{id}
+    </select>
+
+    <select id="selectRandomProducts" resultType="org.ssm.bean.Product">
+ 		select pid, pname, pfirsttype, psecondtype, pprice, pnum, pcontent, ppicloc, ppublisherid, pdate
+ 		from product
+		order by rand() limit 8;
+ 	</select>
+
+<!--	<select id="selectProductById" resultType="Product">-->
+<!-- 		select pid, pname, pfirsttype, psecondtype, pprice, pnum, pcontent, ppicloc, ppublisherid, pdate-->
+<!-- 		from product-->
+<!-- 		where pid = #{pid}-->
+<!-- 	</select>-->
 </mapper>

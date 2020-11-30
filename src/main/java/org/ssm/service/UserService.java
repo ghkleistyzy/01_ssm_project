@@ -13,4 +13,6 @@ public interface UserService {
     public User checkInfo(User user);
 
     public int updatePersonInfo(User user);
+
+    User getUserById(int id);
 }
