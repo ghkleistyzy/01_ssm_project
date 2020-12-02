@@ -28,7 +28,10 @@ public class ProductServiceImpl implements ProductService {
         return productDao.selectRandomProducts();
     }
 
-
+    @Override
+    public Product getProductById(Integer pid) {
+        return productDao.selectProductById(pid);
+    }
 
 
 }

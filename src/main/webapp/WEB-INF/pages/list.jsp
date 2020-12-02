@@ -1,6 +1,7 @@
 <%@ page import="org.ssm.bean.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.ssm.bean.User" %><%--
   Created by IntelliJ IDEA.
   User: 袁竹雨
   Date: 2020/11/23
@@ -33,21 +34,43 @@
 </script>
 
 <div class="topinfo">
+    <%
+        User nowUser = (User) request.getSession().getAttribute("nowUser");
+        if(nowUser == null){
+    %>
     <ul>
         <li>
-            <a href="person_center">个人中心</a>
-        </li>
-        <li>
-            <a href="cart">购物车</a>
-        </li>
-        <li>
-            <a href="order">我的订单</a>
-        </li>
-        <li>
-            <a href="index.jsp">请登录</a>
+            <a href="login.jsp">请登录</a>
             <a href="register.jsp">点我注册</a>
         </li>
     </ul>
+    <%
+    }
+    else{
+    %>
+    <ul>
+        <li>
+            <a href="exit">退出登录</a>
+        </li>
+        <li>
+            <a href=person_center>个人中心</a>
+        </li>
+        <li>
+            <a href="publish.do">我要发布</a>
+        </li>
+        <li>
+            <a href="cart.do">购物车</a>
+        </li>
+        <li>
+            <a href="order.do">我的订单</a>
+        </li>
+        <li>
+            <a>欢迎，<%=nowUser.getName() %> </a>
+        </li>
+    </ul>
+    <%
+        }
+    %>
 </div>
 
 <div class="logoandsearch">

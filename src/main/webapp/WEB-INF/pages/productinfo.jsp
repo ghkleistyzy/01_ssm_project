@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 %>
 		 	<ul>
 		 		<li>
-					<a href="exit.do">退出登录</a>
+					<a href="exit">退出登录</a>
 				</li>
 				<li>
 					<a href="person_center">个人中心</a>
@@ -64,11 +64,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div class="logoandsearch">
 			<div class="logo">
-				<a href="main.do"><img alt="辣鱼" src="../../../../../新建文件夹/shoppingmall%20(2)/shoppingmall/WebRoot/image/logo.png"/></a>
+				<a href="main.do"><img alt="辣鱼" src="/static/image/logo.png"/></a>
 			</div>
 			<div class="search">
 				<input type="text" name="search" placeholder="在此输入要搜索的商品信息"/>
-				<a href="../../../../../新建文件夹/shoppingmall%20(2)/shoppingmall/WebRoot/search.jsp"><img alt="search" src="../../../../../新建文件夹/shoppingmall%20(2)/shoppingmall/WebRoot/image/search.jpg"/></a>
+				<a href="/static//search.jsp"><img alt="search" src="/static//image/search.jpg"/></a>
 			</div>
 		</div>
 		<div class="mainframe">

@@ -28,9 +28,9 @@
 		order by rand() limit 8;
  	</select>
 
-<!--	<select id="selectProductById" resultType="Product">-->
-<!-- 		select pid, pname, pfirsttype, psecondtype, pprice, pnum, pcontent, ppicloc, ppublisherid, pdate-->
-<!-- 		from product-->
-<!-- 		where pid = #{pid}-->
-<!-- 	</select>-->
+	<select id="selectProductById" resultType="org.ssm.bean.Product">
+ 		select pid, pname, pfirsttype, psecondtype, pprice, pnum, pcontent, ppicloc, ppublisherid, pdate
+ 		from product
+ 		where pid = #{pid}
+ 	</select>
 </mapper>

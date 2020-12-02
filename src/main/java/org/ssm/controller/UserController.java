@@ -86,8 +86,25 @@ public class UserController {
 //        request.setAttribute("product", product1);
 //        String publisherName = userService.getUserById(product.getPpublisherid()).getName();
 //        request.setAttribute("publisherName", publisherName);
-//        return "redirect:/productinfo.jsp";
+//        return "productinfo";
 //    }
+
+    @RequestMapping("/getoneproduct")
+    public String doGetPublisherName(@RequestParam("pid") String pid,HttpServletRequest request){
+
+        Product product1 = productService.getProductById(Integer.valueOf(pid));
+        request.setAttribute("product", product1);
+
+//        Product product = (Product) request.getAttribute("product");
+        String publisherName = userService.getUserById(product1.getPpublisherid()).getName();
+        request.setAttribute("publisherName", publisherName);
+        return "productinfo";
+    }
+
+    @RequestMapping("/exit")
+    public String exit(){
+        return "redirect:/index.jsp";
+    }
 
 
 }

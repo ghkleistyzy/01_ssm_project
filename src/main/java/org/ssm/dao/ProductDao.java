@@ -13,7 +13,7 @@ public interface ProductDao {
 
 //    void deleteProductById(int pid);
 //
-//    Product selectProductById(Integer pid);
+    Product selectProductById(Integer pid);
 //
 //    void updateProduct(Product product);
 

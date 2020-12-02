@@ -11,6 +11,8 @@ public interface ProductService {
 
     List<Product> getRandomProducts();
 
+    Product getProductById(Integer pid);
+
 
 
 
